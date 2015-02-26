@@ -13,6 +13,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to root_path, notice: "Person was created!"
     else
+      flash.now[:alert] = "You must have a last name.  Additionally a first name or a title"
       render :new
     end
   end
@@ -30,7 +31,8 @@ class PeopleController < ApplicationController
     if @person.update(person_params)
       redirect_to @person
     else
-      render:edit
+      flash.now[:alert] = "You must have a last name.  Additionally a first name or a title"
+      render :edit
     end
   end
 
