@@ -21,4 +21,29 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
   end
 
+  def edit
+    @person = Person.find(params[:id])
+  end
+
+  def update
+    @person = Person.find(params[:id])
+    if @person.update(person_params)
+      redirect_to @person
+    else
+      render:edit
+    end
+  end
+
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+    redirect_to people_path, notice: 'User was successfully deleted.'
+  end
+
+  private
+
+  def person_params
+    params.require(:person).permit(:first_name, :last_name, :title)
+  end
+
 end

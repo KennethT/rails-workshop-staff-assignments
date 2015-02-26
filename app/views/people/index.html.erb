@@ -19,6 +19,10 @@
         <%= link_to person.first_name, person_path(person) %>
         <%= link_to person.last_name, person_path(person) %>
       </td>
+      <td class="text-right">
+        <%= link_to 'Edit', edit_person_path(person), class: 'btn btn-info' %>
+        <%= link_to 'Delete', person, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </td>
     </tr>
   <% end %>
   </tbody>
