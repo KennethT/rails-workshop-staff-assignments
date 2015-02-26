@@ -23,7 +23,7 @@ Clicking link brings users to show page
 
 ```
 From the person show page
-Users should be abel to click an edit link and see the edit form for a person
+Users should be able to click an edit link and see the edit form for a person
 ```
 
 **Users must enter a title/last_name or first_name/last_name**
