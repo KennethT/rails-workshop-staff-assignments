@@ -1,0 +1,11 @@
+<%= form_for([@person, @assignment]) do |f| %>
+
+<%= f.label :location_id %>
+<%= f.collection_select :location_id, Location.order(:name), :id, :name %>
+
+<%= f.label :role %>
+<%= f.text_field :role %>
+
+<%= f.submit %>
+
+<% end %>
