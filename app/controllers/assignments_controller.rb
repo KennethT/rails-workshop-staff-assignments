@@ -8,6 +8,7 @@ class AssignmentsController < ApplicationController
   def create
     @assignment = Assignment.new(assignment_params)
     @person = Person.find(params[:person_id])
+    @assignment.person_id = @person.id
     if @assignment.save
       redirect_to person_path(@person)
     else
@@ -20,7 +21,7 @@ class AssignmentsController < ApplicationController
   private
 
   def assignment_params
-    params.require(:assignment).permit(:location_id, :person_id, :role)
+    params.require(:assignment).permit(:location_id, :role)
   end
 
 end

@@ -2,3 +2,22 @@
 
 <br>
 <%= @person.first_name %> <%= @person.last_name %>
+<br>
+<table  class ="table table-stripped">
+<thead>
+  <tr>
+    <th>Location</th>
+    <th>Role</th>
+  </tr>
+</thead>
+
+<tbody>
+<% @person.assignments.each do |assignment| %>
+<tr>
+<td><%= assignment.location.name %></td>
+<td><%= assignment.role %></td>
+</tr>
+<% end %>
+</tbody>
+
+</table>
