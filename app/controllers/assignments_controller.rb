@@ -17,6 +17,28 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  def edit
+    @assignment = Assignment.find(params[:id])
+    @person = Person.find(params[:person_id])
+  end
+
+  def destroy
+    @assignment = Assignment.find(params[:id])
+    @assignment.destroy
+    redirect_to people_path, notice: 'Assignment was successfully deleted.'
+  end
+
+  def update
+    @assignment = Assignment.find(params[:id])
+    @person = Person.find(params[:person_id])
+    if @assignment.update(assignment_params)
+      redirect_to person_path(@person)
+    else
+      flash.now[:alert] = "You need to add a location and role"
+      render :edit
+    end
+  end
+
 
   private
 
